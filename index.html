@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Noma skin - prirodna nega lica</title>
+<meta name="description" content="Kreme, serumi i ulja za lice od biljnih ulja i 100% organskih sastojaka iz naše bašte.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600&family=Quicksand:wght@400;500;600&display=swap">
+<style>
+:root {
+  --font-heading: 'Quicksand', sans-serif;
+  --font-body: 'Nunito', sans-serif;
+  --color-bg: #2f3520;
+  --color-text: #f1efe3;
+  --color-muted: color-mix(in srgb, #f1efe3 82%, transparent);
+  --color-divider: color-mix(in srgb, #f1efe3 22%, transparent);
+  --color-accent: #d2ad6c;
+  --color-accent-light: #e3c48f;
+  --yellow: #e9c440;
+  --yellow-hover: #ffe47a;
+  --yellow-active: #c9a42a;
+  --pad-x: 24px;
+}
+@media (max-width: 600px) { :root { --pad-x: 16px; } }
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; background: var(--color-bg); color: var(--color-text); font-family: var(--font-body); font-size: 15px; line-height: 1.55; text-wrap: pretty; overflow-x: clip; }
+img { max-width: 100%; }
+h1, h2, h3 { font-family: var(--font-heading); font-weight: 400; margin: 0; }
+p { margin: 0; }
+a { color: var(--color-accent-light); text-underline-offset: 3px; }
+a:hover { color: var(--yellow-hover); }
+
+.container { width: 100%; max-width: 1200px; margin-inline: auto; padding-inline: var(--pad-x); }
+.section { padding-block: 112px; }
+.rule { height: 1px; border: 0; margin: 0 auto; width: calc(100% - 2 * var(--pad-x)); max-width: calc(1200px - 2 * var(--pad-x)); background: var(--color-divider); }
+.kicker { display: block; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-accent-light); margin-bottom: 20px; }
+.h2 { font-size: clamp(34px, 4vw, 48px); line-height: 1.12; }
+.prose { display: flex; flex-direction: column; gap: 20px; font-size: 17px; line-height: 28px; color: var(--color-muted); }
+.grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 380px), 1fr)); gap: 64px; align-items: center; }
+.photo { display: block; width: 100%; height: auto; border-radius: 20px; object-fit: cover; }
+
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 6px; cursor: pointer; text-decoration: none; font: inherit; font-size: 15px; line-height: 1.2; padding: 10px 18px; border-radius: 4px; white-space: nowrap; background: var(--yellow); color: var(--color-bg); border: 1px solid var(--yellow); transition: background .15s ease, border-color .15s ease, transform .15s ease; }
+.btn:hover { background: var(--yellow-hover); border-color: var(--yellow-hover); color: var(--color-bg); transform: translateY(-2px); }
+.btn:active { background: var(--yellow-active); border-color: var(--yellow-active); transform: none; }
+.btn:focus-visible { outline: 2px solid var(--yellow-hover); outline-offset: 3px; }
+.btn-lg { padding: 14px 28px; font-size: 16px; }
+.btn-block { width: 100%; }
+.btn-outline { background: transparent; color: var(--yellow); }
+.btn-icon { width: 36px; height: 36px; padding: 0; }
+
+.nav { position: sticky; top: 0; z-index: 10; background: var(--color-bg); border-bottom: 1px solid var(--color-divider); }
+.nav .container { display: flex; align-items: center; gap: 16px; padding-block: 14px; }
+.nav-brand { font-family: var(--font-heading); font-weight: 600; font-size: 18px; color: var(--color-text); text-decoration: none; margin-right: auto; }
+.nav-brand:hover { color: var(--color-text); }
+
+.hero { padding-block: 96px 112px; display: flex; flex-direction: column; gap: 48px; }
+.hero h1 { font-size: clamp(44px, 7.6vw, 108px); line-height: 1.04; letter-spacing: -0.015em; }
+.hero-lead { margin-top: 28px; max-width: 46ch; font-size: clamp(18px, 1.8vw, 21px); line-height: 1.5; color: color-mix(in srgb, var(--color-text) 85%, transparent); }
+.hero-media { position: relative; border-radius: 20px; overflow: hidden; }
+.hero-media img { display: block; width: 100%; height: auto; aspect-ratio: 1374 / 1145; object-fit: cover; }
+.price-tag { position: absolute; display: flex; flex-direction: column; gap: 2px; padding: 10px 14px; background: var(--color-bg); border: 1px solid var(--color-divider); border-radius: 6px; text-decoration: none; color: var(--color-text); line-height: 1.2; }
+.price-tag:hover { border-color: var(--color-accent); color: var(--color-text); }
+.price-tag b { font-family: var(--font-heading); font-size: clamp(13px, 1.4vw, 17px); font-weight: 600; white-space: nowrap; }
+.price-tag span { font-size: clamp(12px, 1.2vw, 15px); color: var(--color-accent-light); white-space: nowrap; }
+.hero-foot { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr)); gap: 32px 64px; align-items: end; padding-top: 40px; }
+.hero-foot-lead { font-family: var(--font-heading); font-size: clamp(24px, 2.6vw, 32px); line-height: 1.25; letter-spacing: -0.01em; }
+.hero-foot-side { display: flex; flex-direction: column; gap: 20px; border-left: 1px solid var(--color-divider); padding-left: 32px; }
+.tnum { font-feature-settings: 'tnum' 1; }
+
+.big-num { font-family: var(--font-heading); font-size: clamp(160px, 22vw, 300px); line-height: .85; color: var(--color-accent); }
+.benefit { display: flex; gap: 16px; align-items: flex-start; padding: 20px 0; border-top: 1px solid var(--color-divider); font-size: 17px; line-height: 28px; }
+.benefit svg { flex: none; margin-top: 4px; }
+
+.review { margin: 0; border: 1px solid var(--color-divider); border-radius: 20px; padding: 36px 32px 28px; display: flex; flex-direction: column; gap: 22px; transition: border-color .2s ease, transform .2s ease; }
+.review:hover { border-color: var(--yellow); transform: translateY(-4px); }
+.review-top { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+.stars { display: flex; gap: 3px; color: var(--yellow); }
+.pill { font-size: 12px; letter-spacing: .08em; text-transform: uppercase; padding: 5px 10px; border: 1px solid color-mix(in srgb, var(--yellow) 60%, transparent); border-radius: 999px; color: var(--yellow); white-space: nowrap; }
+.review-hook { font-family: var(--font-heading); font-weight: 500; font-size: clamp(26px, 2.4vw, 30px); line-height: 1.2; letter-spacing: -0.01em; }
+.review blockquote { margin: 0; font-size: 16px; line-height: 1.6; color: color-mix(in srgb, var(--color-text) 78%, transparent); }
+.review figcaption { display: flex; align-items: center; gap: 12px; padding-top: 18px; border-top: 1px solid var(--color-divider); font-size: 16px; font-weight: 600; }
+.avatar { width: 40px; height: 40px; flex: none; border-radius: 50%; background: var(--yellow); color: var(--color-bg); display: flex; align-items: center; justify-content: center; font-family: var(--font-heading); font-weight: 600; font-size: 18px; }
+
+.card { display: flex; flex-direction: column; gap: 16px; padding: 20px; border: 1px solid var(--color-divider); border-radius: 4px; }
+.card.is-selected { border-color: var(--color-accent); }
+.card-img { width: 100%; aspect-ratio: 1 / 1; border-radius: 12px; object-fit: cover; display: block; }
+.card h3 { font-weight: 500; font-size: 24px; line-height: 1.2; }
+
+.cart-row { display: flex; align-items: center; gap: 12px; padding: 14px 0; border-bottom: 1px solid var(--color-divider); }
+.field label { display: block; font-size: 13px; margin-bottom: 5px; color: color-mix(in srgb, var(--color-text) 70%, transparent); }
+.input { width: 100%; min-height: 40px; padding: 8px 12px; font: inherit; font-size: 15px; color: var(--color-text); caret-color: var(--color-accent); background: transparent; border: 1px solid var(--color-divider); border-radius: 4px; }
+.input::placeholder { color: color-mix(in srgb, #f1efe3 50%, transparent); }
+.input:hover { border-color: color-mix(in srgb, var(--color-text) 45%, transparent); }
+.input:focus-visible { border-color: var(--color-accent); outline: 2px solid var(--color-accent); outline-offset: 0; }
+
+@keyframes nomaUp { from { opacity: 0; transform: translateY(0.35em); } to { opacity: 1; transform: none; } }
+.w { display: inline-block; animation: nomaUp .7s cubic-bezier(.2,.7,.2,1) both; }
+.js-hidden { opacity: 0; }
+@media (prefers-reduced-motion: reduce) { *, .w { animation: none !important; } .js-hidden { opacity: 1 !important; } }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="container">
+    <a href="#" class="nav-brand">Noma skin</a>
+    <a href="#ponuda" class="btn">Izaberi svoju kremu</a>
+  </div>
+</nav>
+
+<main>
+  <section class="container hero" id="vrh">
+    <div style="max-width: 1100px;">
+      <h1 data-words data-start="0.15" data-step="0.11">Kako da neguješ lice prirodnom kozmetikom, a da tačno znaš šta je u tegli?</h1>
+      <p class="hero-lead" style="animation: nomaUp .8s ease 1.89s both;">Biraj kremu čije biljke možeš da vidiš. Mi ih gajimo u svojoj bašti, beremo ih sami i od njih pravimo svaku teglu koju ti pošaljemo.</p>
+    </div>
+    <div style="animation: nomaUp 1s ease 2.39s both;">
+      <div class="hero-media">
+        <img src="assets/hero.png" alt="Noma skin serum i krema za lice na kamenu u bašti" width="1374" height="1145">
+        <a href="#ponuda" class="price-tag" style="left: 9%; top: 44%;"><b>Serum za lice</b><span class="tnum">2.500 din</span></a>
+        <a href="#ponuda" class="price-tag" style="left: 52%; top: 30%;"><b>Dnevna krema</b><span class="tnum">3.000 din</span></a>
+      </div>
+      <div class="hero-foot">
+        <p class="hero-foot-lead">Noma skin pravi kreme, serume i ulja od biljnih ulja i 100% organskih sastojaka. Biljke gajimo u svojoj bašti. Mali smo porodični posao i ovo radimo pet godina.</p>
+        <div class="hero-foot-side">
+          <p style="font-size: 16px; line-height: 26px; color: var(--color-muted);">Sedam proizvoda za negu lica: dnevna i noćna krema, dva seruma, kremica za podočnjake, lagana krema za masnu kožu i ulje za trepavice.</p>
+          <p class="tnum" style="font-family: var(--font-heading); font-size: 28px;">od 2.400 din</p>
+          <div><a href="#ponuda" class="btn btn-lg">Pogledaj svih 7 proizvoda</a></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="rule">
+
+  <section class="container section" data-reveal>
+    <span class="kicker">Poznato?</span>
+    <h2 class="h2" style="max-width: 22ch;">Spreda piše „prirodno". Pozadi je spisak sastojaka koji ne umeš da pročitaš.</h2>
+    <div class="prose" style="margin-top: 40px; max-width: 62ch;">
+      <p>Stojiš u drogeriji i okrećeš kremu u ruci. Na prednjoj strani zeleni list i reč organic. Na poleđini dugačak spisak hemijskih naziva.</p>
+      <p>Kupiš je jer nemaš vremena da proveravaš svaki sastojak. Posle mesec dana ne znaš da li je pomogla, odmogla ili ništa.</p>
+      <p>Probaš sledeću. Polica u kupatilu se puni, a ti i dalje ne znaš kome da veruješ.</p>
+    </div>
+  </section>
+
+  <hr class="rule">
+
+  <section class="container section grid-2" data-reveal>
+    <img class="photo" src="assets/basta.png" alt="Naša bašta sa maslinama, lavandom i začinskim biljem" style="aspect-ratio: 1374 / 1145;" loading="lazy">
+    <div>
+      <span class="kicker">Noma skin</span>
+      <h2 class="h2">Kozmetika od ljudi koji gaje biljke od kojih je prave</h2>
+      <div class="prose" style="margin-top: 32px; max-width: 58ch;">
+        <p>Noma skin je naš porodični posao. Biljke gajimo u svojoj bašti, sastojke biramo sami i od njih pravimo sedam proizvoda za negu lica.</p>
+        <p>Koristimo biljna ulja i 100% organske sastojke. Kad nas pitaš šta je u kremi, odgovor znamo napamet.</p>
+      </div>
+    </div>
+    <div style="grid-column: 1 / -1; display: flex; flex-direction: column; gap: 32px; margin-top: 32px;">
+      <h3 style="font-size: clamp(28px, 3vw, 36px); line-height: 1.15;">Biljke iz naše bašte!</h3>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 24px;">
+        <img class="photo" src="assets/basta-1.jpg" alt="Ruzmarin iz naše bašte" style="aspect-ratio: 4 / 5;" loading="lazy">
+        <img class="photo" src="assets/basta-2.jpg" alt="Kamilica iz naše bašte" style="aspect-ratio: 4 / 5;" loading="lazy">
+      </div>
+    </div>
+  </section>
+
+  <hr class="rule">
+
+  <section class="container section" data-reveal style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 48px 80px; align-items: start;">
+    <div>
+      <p class="big-num tnum">5</p>
+      <p style="font-size: clamp(22px, 2.4vw, 28px); line-height: 1.35; letter-spacing: .06em; text-transform: uppercase; margin-top: 24px; max-width: 18ch; color: color-mix(in srgb, var(--color-text) 80%, transparent);">godina pravimo prirodnu negu lica</p>
+    </div>
+    <div class="prose" style="max-width: 58ch;">
+      <h2 style="font-size: clamp(30px, 3.4vw, 40px); line-height: 1.15; color: var(--color-text);">Za nas si verovatno čula od nekog koga znaš</h2>
+      <p>Ovu kozmetiku pravimo pet godina. Većina naših mušterija je za nas čula od prijateljice, koleginice ili komšinice.</p>
+      <p>Nemamo reklame. Rastemo tako što jedna žena preporuči kremu drugoj.</p>
+    </div>
+  </section>
+
+  <hr class="rule">
+
+  <section class="container section" data-reveal>
+    <span class="kicker">Šta dobijaš</span>
+    <h2 class="h2" style="max-width: 20ch;">Negu kojoj ne moraš da proveravaš deklaraciju</h2>
+    <div id="benefits" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)); gap: 0 64px; margin-top: 48px;"></div>
+  </section>
+
+  <hr class="rule">
+
+  <section class="container section" data-reveal>
+    <span class="kicker">Iskustva</span>
+    <h2 class="h2">Šta kažu žene koje ih koriste?</h2>
+    <div id="reviews" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 24px; margin-top: 56px; align-items: start;"></div>
+  </section>
+
+  <hr class="rule">
+
+  <section class="container section" id="ponuda" data-reveal style="scroll-margin-top: 64px;">
+    <span class="kicker">Ponuda</span>
+    <h2 class="h2">Odaberi kremu koja ti odgovara</h2>
+    <p style="font-size: 17px; line-height: 28px; max-width: 62ch; margin-top: 24px; color: var(--color-muted);">Mi smo mala porodica i sve pravimo sami. Cene držimo niskim jer želimo da naša kozmetika stigne do što više devojaka i žena.</p>
+    <div id="products" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 240px), 1fr)); gap: 24px; margin-top: 48px;"></div>
+  </section>
+
+  <hr class="rule">
+
+  <section class="container section" id="porudzbina" data-reveal style="scroll-margin-top: 64px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 400px), 1fr)); gap: 64px; align-items: start;">
+    <div>
+      <span class="kicker">Porudžbina</span>
+      <h2 class="h2">Pošalji porudžbinu</h2>
+      <ol class="prose" style="margin: 32px 0 0; padding-left: 20px; gap: 12px; max-width: 48ch;">
+        <li>Dodaj proizvode iz ponude iznad.</li>
+        <li>Upiši ime, telefon i adresu za dostavu.</li>
+        <li>Klikni „Pošalji porudžbinu". Javljamo ti se da potvrdimo porudžbinu i dogovorimo dostavu.</li>
+      </ol>
+      <div id="cart" style="margin-top: 40px; border-top: 1px solid var(--color-divider);"></div>
+    </div>
+    <div class="card" style="padding: 32px;">
+      <form id="order-form" novalidate style="display: flex; flex-direction: column; gap: 20px;">
+        <div class="field"><label for="ime">Ime i prezime</label><input id="ime" name="ime" class="input" type="text" autocomplete="name" placeholder="Jelena Petrović"></div>
+        <div class="field"><label for="tel">Telefon</label><input id="tel" name="telefon" class="input" type="tel" autocomplete="tel" placeholder="06x xxx xxxx"></div>
+        <div class="field"><label for="adr">Adresa za dostavu</label><input id="adr" name="adresa" class="input" type="text" autocomplete="street-address" placeholder="Ulica i broj, grad"></div>
+        <div class="field"><label for="nap">Napomena (nije obavezno)</label><input id="nap" name="napomena" class="input" type="text" placeholder="Pitanje o tipu kože, vreme za poziv"></div>
+        <p id="form-error" role="alert" style="font-size: 15px; color: var(--color-accent-light);" hidden></p>
+        <button type="submit" class="btn btn-lg btn-block">Pošalji porudžbinu</button>
+      </form>
+      <div id="thanks" style="display: flex; flex-direction: column; gap: 16px;" hidden>
+        <h3 style="font-size: 32px; line-height: 1.15;"></h3>
+        <p style="font-size: 17px; line-height: 28px; color: var(--color-muted);"></p>
+      </div>
+    </div>
+  </section>
+
+  <hr class="rule">
+
+  <section class="container section" data-reveal style="padding-bottom: 128px;">
+    <p style="max-width: 58ch; font-family: var(--font-heading); font-size: clamp(24px, 2.6vw, 30px); line-height: 1.35;">P.S. Lavanda je procvetala, kamilicu smo ubrali i napunili tegle. Fali samo tvoja adresa. Sedam proizvoda, od 2.400 do 3.500 dinara.</p>
+    <div style="margin-top: 36px;"><a href="#ponuda" class="btn btn-lg">Izaberi svoju kremu</a></div>
+  </section>
+</main>
+
+<footer style="border-top: 1px solid var(--color-divider);">
+  <div class="container" style="padding-block: 96px 40px; display: flex; flex-direction: column; gap: 64px;">
+    <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 40px;">
+      <div style="display: flex; flex-direction: column; gap: 16px;">
+        <span style="font-family: var(--font-heading); font-size: clamp(56px, 9vw, 120px); line-height: .95; letter-spacing: -0.02em;">Noma skin</span>
+        <span style="font-size: 18px; color: color-mix(in srgb, var(--color-text) 80%, transparent);">Porodična prirodna kozmetika iz naše bašte</span>
+      </div>
+      <nav aria-label="Footer" style="display: flex; flex-wrap: wrap; gap: 12px 32px; font-size: 16px;">
+        <a href="#ponuda">Proizvodi i cene</a>
+        <a href="#porudzbina">Porudžbina</a>
+      </nav>
+    </div>
+    <div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px 32px; padding-top: 24px; border-top: 1px solid var(--color-divider); font-size: 13px; color: color-mix(in srgb, var(--color-text) 70%, transparent);">
+      <span>© 2026 Noma skin</span>
+      <span>Biljna ulja i 100% organski sastojci</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var PRODUCTS = [
+    { id: 'dnevna', name: 'Dnevna krema', price: 3000, img: 'assets/dnevna-krema.png' },
+    { id: 'serum', name: 'Serum za lice', price: 2500, img: 'assets/serum-za-lice.png' },
+    { id: 'vitc', name: 'Serum sa vitaminom C', price: 3000, img: 'assets/serum-vitamin-c.png' },
+    { id: 'nocna', name: 'Noćna krema', price: 3500, img: 'assets/nocna-krema.png' },
+    { id: 'podocnjaci', name: 'Kremica za podočnjake', price: 3400, img: 'assets/kremica-podocnjaci.png' },
+    { id: 'masna', name: 'Lagana krema za masnu kožu', price: 2400, img: 'assets/krema-masna-koza.png' },
+    { id: 'trepavice', name: 'Ulje za rast trepavica', price: 3000, img: 'assets/ulje-trepavice.png' }
+  ];
+  var BENEFITS = [
+    'Znaš odakle dolazi sastojak: iz naše bašte.',
+    'Biljna ulja i 100% organski sastojci.',
+    'Posebna krema za dan i posebna za noć.',
+    'Odvojena nega za podočnjake, trepavice i masnu kožu.',
+    'Kraća rutina: dva ili tri proizvoda koja dobro poznaješ.',
+    'Kad imaš pitanje, pitaš ljude koji su kremu napravili.',
+    'Tvoj novac ide porodici koja gaji biljke.'
+  ];
+  var REVIEWS = [
+    ['Sofija M.', 'Nega lica', 'Nikada nije bila ovako mekana', 'Moja koža nikada nije bila ovako mekana i hidrirana. Posebno mi se dopada što su proizvodi napravljeni od biljnih sastojaka i prirodnih ulja.'],
+    ['Milica R.', 'Dnevna krema', 'Neizostavan deo jutarnje rutine', 'Krema za lice postala je neizostavan deo moje jutarnje rutine. Lagana je, brzo se upija i ostavlja kožu nežnom tokom celog dana.'],
+    ['Ana K.', 'Serum za lice', 'Serum je zaista divan!', 'Serum je zaista divan! Nakon nekoliko nedelja korišćenja koža mi izgleda svežije i negovanije. Definitivno nastavljam da ga koristim.'],
+    ['Jovana T.', 'Nega lica', 'Tekstura je predivna', 'Obožavam jednostavnost ovih proizvoda. Tekstura je predivna, miris blag, a koža nakon nanošenja ostaje mekana i glatka.'],
+    ['Teodora L.', 'Osetljiva koža', 'Krema mi veoma prija', 'Imam osetljivu kožu i teško pronalazim proizvode koji mi odgovaraju. NOMA SKIN krema mi veoma prija i ne ostavlja težak osećaj na licu.'],
+    ['Marija B.', 'Priča iz bašte', 'Biljke iz sopstvene bašte', 'Najviše me je privukla priča o biljkama koje uzgajaju u sopstvenoj bašti. Volim brendove koji pažljivo biraju sastojke i neguju povezanost sa prirodom.']
+  ];
+  var LEAF = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#d2ad6c" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg>';
+  var STAR = '<svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6L2.5 9.4l6.6-.8z"/></svg>';
+  var MINUS = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14"/></svg>';
+  var PLUS = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14"/><path d="M12 5v14"/></svg>';
+
+  var qty = {};
+  var $ = function (id) { return document.getElementById(id); };
+  var fmt = function (n) { return n.toLocaleString('de-DE') + ' din'; };
+  var esc = function (s) { return String(s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); };
+
+  $('benefits').innerHTML = BENEFITS.map(function (b) { return '<div class="benefit">' + LEAF + '<span>' + b + '</span></div>'; }).join('');
+
+  $('reviews').innerHTML = REVIEWS.map(function (r, i) {
+    var offset = (i % 3 === 1) ? ' style="margin-top: 40px;"' : '';
+    return '<figure class="review"' + offset + '>' +
+      '<div class="review-top"><div class="stars" role="img" aria-label="5 od 5 zvezdica">' + STAR + STAR + STAR + STAR + STAR + '</div><span class="pill">' + r[1] + '</span></div>' +
+      '<p class="review-hook">„' + r[2] + '“</p>' +
+      '<blockquote>' + r[3] + '</blockquote>' +
+      '<figcaption><span class="avatar" aria-hidden="true">' + r[0][0] + '</span>' + r[0] + '</figcaption></figure>';
+  }).join('');
+
+  function renderProducts() {
+    $('products').innerHTML = PRODUCTS.map(function (p) {
+      var sel = !!qty[p.id];
+      return '<div class="card' + (sel ? ' is-selected' : '') + '">' +
+        '<img class="card-img" src="' + p.img + '" alt="' + p.name + '" loading="lazy">' +
+        '<div style="display: flex; flex-direction: column; gap: 6px; flex: 1;"><h3>' + p.name + '</h3><p class="tnum" style="font-size: 17px; color: var(--color-accent-light);">' + fmt(p.price) + '</p></div>' +
+        '<button type="button" class="btn btn-block' + (sel ? ' btn-outline' : '') + '" data-toggle="' + p.id + '">' + (sel ? 'Dodato u porudžbinu' : 'Dodaj u porudžbinu') + '</button></div>';
+    }).join('');
+  }
+
+  function renderCart() {
+    var items = PRODUCTS.filter(function (p) { return qty[p.id]; });
+    if (!items.length) {
+      $('cart').innerHTML = '<p style="padding: 20px 0; font-size: 15px; color: color-mix(in srgb, var(--color-text) 70%, transparent);">Još nisi dodala nijedan proizvod. <a href="#ponuda">Pogledaj ponudu</a></p>';
+      return;
+    }
+    var total = 0;
+    var rows = items.map(function (p) {
+      total += p.price * qty[p.id];
+      return '<div class="cart-row"><span style="flex: 1; font-size: 16px;">' + p.name + '</span>' +
+        '<div style="display: flex; align-items: center; gap: 4px;">' +
+        '<button type="button" class="btn btn-outline btn-icon" aria-label="Manje: ' + p.name + '" data-dec="' + p.id + '">' + MINUS + '</button>' +
+        '<span class="tnum" style="min-width: 24px; text-align: center;">' + qty[p.id] + '</span>' +
+        '<button type="button" class="btn btn-outline btn-icon" aria-label="Više: ' + p.name + '" data-inc="' + p.id + '">' + PLUS + '</button></div>' +
+        '<span class="tnum" style="min-width: 88px; text-align: right;">' + fmt(p.price * qty[p.id]) + '</span></div>';
+    }).join('');
+    $('cart').innerHTML = rows + '<div style="display: flex; justify-content: space-between; padding: 18px 0; font-family: var(--font-heading); font-size: 26px;"><span>Ukupno</span><span class="tnum">' + fmt(total) + '</span></div>';
+  }
+
+  function setQty(id, q) {
+    if (q <= 0) delete qty[id]; else qty[id] = q;
+    $('form-error').hidden = true;
+    renderProducts(); renderCart();
+  }
+
+  document.addEventListener('click', function (e) {
+    var t = e.target.closest('[data-toggle],[data-inc],[data-dec]');
+    if (!t) return;
+    if (t.dataset.toggle) setQty(t.dataset.toggle, qty[t.dataset.toggle] ? 0 : 1);
+    if (t.dataset.inc) setQty(t.dataset.inc, (qty[t.dataset.inc] || 0) + 1);
+    if (t.dataset.dec) setQty(t.dataset.dec, (qty[t.dataset.dec] || 0) - 1);
+  });
+
+  $('order-form').addEventListener('submit', function (e) {
+    e.preventDefault();
+    var err = $('form-error');
+    var name = $('ime').value.trim(), phone = $('tel').value.trim(), address = $('adr').value.trim();
+    if (!Object.keys(qty).length) { err.textContent = 'Dodaj bar jedan proizvod iz ponude.'; err.hidden = false; return; }
+    if (!name || !phone || !address) { err.textContent = 'Upiši ime, telefon i adresu.'; err.hidden = false; return; }
+    // TODO: poveži sa servisom za slanje (npr. Formspree, email ili prodavnica). Za sada se porudžbina nigde ne šalje.
+    $('order-form').hidden = true;
+    var thanks = $('thanks');
+    thanks.querySelector('h3').textContent = 'Hvala, ' + name + '.';
+    thanks.querySelector('p').textContent = 'Porudžbina je stigla. Javljamo ti se na ' + phone + ' da potvrdimo i dogovorimo dostavu.';
+    thanks.hidden = false;
+  });
+
+  renderProducts(); renderCart();
+
+  function splitWords(el, start, step) {
+    var words = el.textContent.trim().split(/\s+/);
+    el.setAttribute('aria-label', el.textContent.trim());
+    el.innerHTML = words.map(function (w, i) {
+      return '<span class="w" aria-hidden="true" style="animation-delay:' + (start + i * step).toFixed(2) + 's">' + esc(w) + '</span>';
+    }).join(' ');
+    return start + words.length * step;
+  }
+
+  var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+  document.querySelectorAll('[data-words]').forEach(function (el) {
+    if (!reduce) splitWords(el, parseFloat(el.dataset.start), parseFloat(el.dataset.step));
+  });
+
+  if (reduce || !('IntersectionObserver' in window)) return;
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (en) {
+      if (!en.isIntersecting) return;
+      io.unobserve(en.target);
+      (en.target._reveal || []).forEach(function (pair) {
+        pair[0].classList.remove('js-hidden');
+        pair[0].style.animation = 'nomaUp .8s cubic-bezier(.2,.7,.2,1) ' + pair[1].toFixed(2) + 's both';
+      });
+    });
+  }, { threshold: 0.15 });
+
+  document.querySelectorAll('[data-reveal]').forEach(function (sec) {
+    var picked = [];
+    sec.querySelectorAll('h2, h3, p, ol, figure, .card, img, a.btn, form, .benefit').forEach(function (el) {
+      if (!picked.some(function (p) { return p.contains(el); })) picked.push(el);
+    });
+    var d = 0, items = [];
+    picked.forEach(function (el) {
+      if (el.tagName === 'H2' && !el.children.length) {
+        var words = el.textContent.trim().split(/\s+/);
+        el.setAttribute('aria-label', el.textContent.trim());
+        el.innerHTML = words.map(function (w) { return '<span class="w js-hidden" aria-hidden="true" style="animation:none">' + esc(w) + '</span>'; }).join(' ');
+        el.querySelectorAll('.w').forEach(function (s) { items.push([s, d]); d += 0.08; });
+        d += 0.15;
+      } else {
+        el.classList.add('js-hidden');
+        items.push([el, d]); d = Math.min(d + 0.12, 2);
+      }
+    });
+    sec._reveal = items;
+    io.observe(sec);
+  });
+})();
+</script>
+</body>
+</html>
