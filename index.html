@@ -7,11 +7,11 @@
 <meta name="description" content="Kreme, serumi i ulja za lice od biljnih ulja i 100% organskih sastojaka iz naše bašte.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600&family=Quicksand:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Marcellus&display=swap">
 <style>
 :root {
-  --font-heading: 'Quicksand', sans-serif;
-  --font-body: 'Nunito', sans-serif;
+  --font-heading: 'Marcellus', serif;
+  --font-body: 'Marcellus', serif;
   --color-bg: #2f3520;
   --color-text: #f1efe3;
   --color-muted: color-mix(in srgb, #f1efe3 82%, transparent);
@@ -96,7 +96,8 @@ a:hover { color: var(--yellow-hover); }
 .input:hover { border-color: color-mix(in srgb, var(--color-text) 45%, transparent); }
 .input:focus-visible { border-color: var(--color-accent); outline: 2px solid var(--color-accent); outline-offset: 0; }
 
-@keyframes nomaUp { from { opacity: 0; transform: translateY(0.35em); } to { opacity: 1; transform: none; } }
+@keyframes nomaMarquee { from { transform: translateX(-50%); } to { transform: translateX(0); } }
+    @keyframes nomaUp { from { opacity: 0; transform: translateY(0.35em); } to { opacity: 1; transform: none; } }
 .w { display: inline-block; animation: nomaUp .7s cubic-bezier(.2,.7,.2,1) both; }
 .js-hidden { opacity: 0; }
 @media (prefers-reduced-motion: reduce) { *, .w { animation: none !important; } .js-hidden { opacity: 1 !important; } }
@@ -106,7 +107,7 @@ a:hover { color: var(--yellow-hover); }
 
 <nav class="nav">
   <div class="container">
-    <a href="#" class="nav-brand">Noma skin</a>
+    <a href="#" class="nav-brand" aria-label="Noma skin"><span style="display: flex; flex-direction: column; align-items: center; gap: 2px; line-height: 1;"><span style="font-family: 'Marcellus', serif; font-size: 24px; font-weight: 400; letter-spacing: 0.32em; margin-right: -0.32em;">NOMA</span><span style="font-family: 'Marcellus', serif; font-size: 10px; font-weight: 400; letter-spacing: 0.42em; margin-right: -0.42em;">SKIN</span></span></a>
     <a href="#ponuda" class="btn">Izaberi svoju kremu</a>
   </div>
 </nav>
@@ -114,8 +115,8 @@ a:hover { color: var(--yellow-hover); }
 <main>
   <section class="container hero" id="vrh">
     <div style="max-width: 1100px;">
-      <h1 data-words data-start="0.15" data-step="0.11">Kako da neguješ lice prirodnom kozmetikom, a da tačno znaš šta je u tegli?</h1>
-      <p class="hero-lead" style="animation: nomaUp .8s ease 1.89s both;">Biraj kremu čije biljke možeš da vidiš. Mi ih gajimo u svojoj bašti, beremo ih sami i od njih pravimo svaku teglu koju ti pošaljemo.</p>
+      <h1 data-words data-start="0.15" data-step="0.11">Kako da neguješ lice prirodnom kozmetikom, a da tačno znaš šta je u kremi?</h1>
+      <p class="hero-lead" style="animation: nomaUp .8s ease 1.89s both;">Biraj kvalitetne sastojke. Biraj kremu koja ti zaista pomaže.</p>
     </div>
     <div style="animation: nomaUp 1s ease 2.39s both;">
       <div class="hero-media">
@@ -134,15 +135,18 @@ a:hover { color: var(--yellow-hover); }
     </div>
   </section>
 
-  <hr class="rule">
+  <div aria-label="Ruzmarin, Ulje jojobe, Kamilica, Ulje divljeg šipka, Lavanda, Bademovo ulje, Neven, Arganovo ulje, Vitamin C" style="width: 100%; overflow: hidden; background: #e9c440; color: #2f3520; padding: 18px 0; font-family: var(--font-heading); font-size: clamp(18px, 2vw, 24px); letter-spacing: 0.04em; text-transform: uppercase;">
+    <div style="display: flex; width: max-content; animation: nomaMarquee 40s linear infinite;"><div style="display: flex; align-items: center; gap: 40px; padding-right: 40px; flex: none;"><span style="display: flex; align-items: center; gap: 40px; white-space: nowrap;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none;"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"></path><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"></path></svg><span>Ruzmarin</span></span><span style="display: flex; align-items: center; gap: 40px; white-space: nowrap;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none;"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"></path><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"></path></svg><span>Ulje jojobe</span></span><span style="display: flex; align-items: center; gap: 40px; white-space: nowrap;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none;"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"></path><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"></path></svg><span>Kamilica</span></span><span style="display: flex; align-items: center; gap: 40px; white-space: nowrap;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none;"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"></path><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"></path></svg><span>Ulje divljeg šipka</span></span><span style="display: flex; align-items: center; gap: 40px; white-space: nowrap;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none;"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"></path><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"></path></svg><span>Lavanda</span></span><span style="display: flex; align-items: center; gap: 40px; white-space: nowrap;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none;"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"></path><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"></path></svg><span>Bademovo ulje</span></span><span style="display: flex; align-items: center; gap: 40px; white-space: nowrap;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none;"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"></path><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"></path></svg><span>Neven</span></span><span style="display: flex; align-items: center; gap: 40px; white-space: nowrap;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none;"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"></path><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"></path></svg><span>Arganovo ulje</span></span><span style="display: flex; align-items: center; gap: 40px; white-space: nowrap;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none;"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"></path><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"></path></svg><span>Vitamin C</span></span></div><div aria-hidden="true" style="display: flex; align-items: center; gap: 40px; padding-right: 40px; flex: none;"><span style="display: flex; align-items: center; gap: 40px; white-space: nowrap;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none;"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"></path><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"></path></svg><span>Ruzmarin</span></span><span style="display: flex; align-items: center; gap: 40px; white-space: nowrap;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none;"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"></path><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"></path></svg><span>Ulje jojobe</span></span><span style="display: flex; align-items: center; gap: 40px; white-space: nowrap;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none;"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"></path><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"></path></svg><span>Kamilica</span></span><span style="display: flex; align-items: center; gap: 40px; white-space: nowrap;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none;"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"></path><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"></path></svg><span>Ulje divljeg šipka</span></span><span style="display: flex; align-items: center; gap: 40px; white-space: nowrap;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none;"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"></path><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"></path></svg><span>Lavanda</span></span><span style="display: flex; align-items: center; gap: 40px; white-space: nowrap;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none;"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"></path><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"></path></svg><span>Bademovo ulje</span></span><span style="display: flex; align-items: center; gap: 40px; white-space: nowrap;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none;"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"></path><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"></path></svg><span>Neven</span></span><span style="display: flex; align-items: center; gap: 40px; white-space: nowrap;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none;"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"></path><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"></path></svg><span>Arganovo ulje</span></span><span style="display: flex; align-items: center; gap: 40px; white-space: nowrap;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none;"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"></path><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"></path></svg><span>Vitamin C</span></span></div><div aria-hidden="true" style="display: flex; align-items: center; gap: 40px; padding-right: 40px; flex: none;"><span style="display: flex; align-items: center; gap: 40px; white-space: nowrap;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none;"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"></path><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"></path></svg><span>Ruzmarin</span></span><span style="display: flex; align-items: center; gap: 40px; white-space: nowrap;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none;"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"></path><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"></path></svg><span>Ulje jojobe</span></span><span style="display: flex; align-items: center; gap: 40px; white-space: nowrap;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none;"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"></path><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"></path></svg><span>Kamilica</span></span><span style="display: flex; align-items: center; gap: 40px; white-space: nowrap;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none;"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"></path><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"></path></svg><span>Ulje divljeg šipka</span></span><span style="display: flex; align-items: center; gap: 40px; white-space: nowrap;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none;"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"></path><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"></path></svg><span>Lavanda</span></span><span style="display: flex; align-items: center; gap: 40px; white-space: nowrap;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none;"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"></path><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"></path></svg><span>Bademovo ulje</span></span><span style="display: flex; align-items: center; gap: 40px; white-space: nowrap;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none;"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"></path><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"></path></svg><span>Neven</span></span><span style="display: flex; align-items: center; gap: 40px; white-space: nowrap;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none;"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"></path><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"></path></svg><span>Arganovo ulje</span></span><span style="display: flex; align-items: center; gap: 40px; white-space: nowrap;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none;"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"></path><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"></path></svg><span>Vitamin C</span></span></div><div aria-hidden="true" style="display: flex; align-items: center; gap: 40px; padding-right: 40px; flex: none;"><span style="display: flex; align-items: center; gap: 40px; white-space: nowrap;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none;"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"></path><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"></path></svg><span>Ruzmarin</span></span><span style="display: flex; align-items: center; gap: 40px; white-space: nowrap;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none;"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"></path><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"></path></svg><span>Ulje jojobe</span></span><span style="display: flex; align-items: center; gap: 40px; white-space: nowrap;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none;"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"></path><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"></path></svg><span>Kamilica</span></span><span style="display: flex; align-items: center; gap: 40px; white-space: nowrap;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none;"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"></path><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"></path></svg><span>Ulje divljeg šipka</span></span><span style="display: flex; align-items: center; gap: 40px; white-space: nowrap;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none;"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"></path><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"></path></svg><span>Lavanda</span></span><span style="display: flex; align-items: center; gap: 40px; white-space: nowrap;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none;"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"></path><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"></path></svg><span>Bademovo ulje</span></span><span style="display: flex; align-items: center; gap: 40px; white-space: nowrap;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none;"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"></path><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"></path></svg><span>Neven</span></span><span style="display: flex; align-items: center; gap: 40px; white-space: nowrap;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none;"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"></path><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"></path></svg><span>Arganovo ulje</span></span><span style="display: flex; align-items: center; gap: 40px; white-space: nowrap;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none;"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"></path><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"></path></svg><span>Vitamin C</span></span></div></div>
+  </div>
 
   <section class="container section" data-reveal>
     <span class="kicker">Poznato?</span>
     <h2 class="h2" style="max-width: 22ch;">Spreda piše „prirodno". Pozadi je spisak sastojaka koji ne umeš da pročitaš.</h2>
     <div class="prose" style="margin-top: 40px; max-width: 62ch;">
-      <p>Stojiš u drogeriji i okrećeš kremu u ruci. Na prednjoj strani zeleni list i reč organic. Na poleđini dugačak spisak hemijskih naziva.</p>
-      <p>Kupiš je jer nemaš vremena da proveravaš svaki sastojak. Posle mesec dana ne znaš da li je pomogla, odmogla ili ništa.</p>
-      <p>Probaš sledeću. Polica u kupatilu se puni, a ti i dalje ne znaš kome da veruješ.</p>
+      <p>Stojiš u drogeriji i okrećeš kremu u ruci. Na prednjoj strani zeleni list i reč organic. Na poleđini dugačak spisak hemijskih naziva. Kupiš je jer nemaš vremena da proveravaš svaki sastojak. Posle mesec dana ne znaš da li je pomogla, odmogla ili ništa. Probaš sledeću. Polica u kupatilu se puni, a ti i dalje ne znaš kome da veruješ.</p>
+      <p style="margin: 24px 0 0; padding-top: 28px; border-top: 2px solid #e9c440; font-family: var(--font-heading); font-size: clamp(36px, 5vw, 60px); line-height: 1.08; letter-spacing: -0.01em; color: #e9c440;">Sa Noma skin kremama ne moraš da pogađaš.</p>
+      <p>Svaku teglu pravimo od biljnih ulja i 100% organskih sastojaka, a biljke za njih gajimo u svojoj bašti. Na deklaraciji piše samo ono što smo sami stavili u kremu. Izabereš jednu ili dve kreme koje ti odgovaraju i polica u kupatilu ostaje uredna.</p>
+      <div style="display: flex; margin-top: 8px;"><a href="#ponuda" class="btn btn-lg">Pogledaj naše kreme</a></div>
     </div>
   </section>
 
@@ -152,14 +156,13 @@ a:hover { color: var(--yellow-hover); }
     <img class="photo" src="assets/basta.png" alt="Naša bašta sa maslinama, lavandom i začinskim biljem" style="aspect-ratio: 1374 / 1145;" loading="lazy">
     <div>
       <span class="kicker">Noma skin</span>
-      <h2 class="h2">Kozmetika od ljudi koji gaje biljke od kojih je prave</h2>
+      <h2 class="h2">Od naše bašte do tvoje kože</h2>
       <div class="prose" style="margin-top: 32px; max-width: 58ch;">
-        <p>Noma skin je naš porodični posao. Biljke gajimo u svojoj bašti, sastojke biramo sami i od njih pravimo sedam proizvoda za negu lica.</p>
-        <p>Koristimo biljna ulja i 100% organske sastojke. Kad nas pitaš šta je u kremi, odgovor znamo napamet.</p>
+        <p>Noma skin je naš porodični posao. Biljke gajimo u svojoj bašti, sastojke biramo sami i od njih pravimo sedam proizvoda za negu lica. Koristimo biljna ulja i 100% organske sastojke. Kad nas pitaš šta je u kremi, odgovor znamo napamet.</p>
       </div>
     </div>
     <div style="grid-column: 1 / -1; display: flex; flex-direction: column; gap: 32px; margin-top: 32px;">
-      <h3 style="font-size: clamp(28px, 3vw, 36px); line-height: 1.15;">Biljke iz naše bašte!</h3>
+      <h3 style="font-size: clamp(28px, 3vw, 36px); line-height: 1.15;">Nega koja raste u našoj bašti</h3>
       <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 24px;">
         <img class="photo" src="assets/basta-1.jpg" alt="Ruzmarin iz naše bašte" style="aspect-ratio: 4 / 5;" loading="lazy">
         <img class="photo" src="assets/basta-2.jpg" alt="Kamilica iz naše bašte" style="aspect-ratio: 4 / 5;" loading="lazy">
@@ -176,8 +179,7 @@ a:hover { color: var(--yellow-hover); }
     </div>
     <div class="prose" style="max-width: 58ch;">
       <h2 style="font-size: clamp(30px, 3.4vw, 40px); line-height: 1.15; color: var(--color-text);">Za nas si verovatno čula od nekog koga znaš</h2>
-      <p>Ovu kozmetiku pravimo pet godina. Većina naših mušterija je za nas čula od prijateljice, koleginice ili komšinice.</p>
-      <p>Nemamo reklame. Rastemo tako što jedna žena preporuči kremu drugoj.</p>
+      <p>Ovu kozmetiku pravimo pet godina. Većina naših mušterija je za nas čula od prijateljice, koleginice ili komšinice. Nemamo reklame. Rastemo tako što jedna žena preporuči kremu drugoj.</p>
     </div>
   </section>
 
@@ -202,7 +204,7 @@ a:hover { color: var(--yellow-hover); }
   <section class="container section" id="ponuda" data-reveal style="scroll-margin-top: 64px;">
     <span class="kicker">Ponuda</span>
     <h2 class="h2">Odaberi kremu koja ti odgovara</h2>
-    <p style="font-size: 17px; line-height: 28px; max-width: 62ch; margin-top: 24px; color: var(--color-muted);">Mi smo mala porodica i sve pravimo sami. Cene držimo niskim jer želimo da naša kozmetika stigne do što više devojaka i žena.</p>
+    <p style="font-size: 17px; line-height: 28px; max-width: 62ch; margin-top: 24px; color: var(--color-muted);">Svaka krema je napravljena s ljubavlju i pažnjom samo za vas. Odaberite onu koja vama najviše odgovara</p>
     <div id="products" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 240px), 1fr)); gap: 24px; margin-top: 48px;"></div>
   </section>
 
@@ -246,8 +248,8 @@ a:hover { color: var(--yellow-hover); }
 <footer style="border-top: 1px solid var(--color-divider);">
   <div class="container" style="padding-block: 96px 40px; display: flex; flex-direction: column; gap: 64px;">
     <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 40px;">
-      <div style="display: flex; flex-direction: column; gap: 16px;">
-        <span style="font-family: var(--font-heading); font-size: clamp(56px, 9vw, 120px); line-height: .95; letter-spacing: -0.02em;">Noma skin</span>
+      <div style="display: flex; flex-direction: column; align-items: center; text-align: center; gap: 16px;">
+        <span style="font-family: var(--font-heading); font-size: clamp(56px, 9vw, 120px); line-height: .95; " aria-label="Noma skin"><span style="display: flex; flex-direction: column; align-items: center; gap: 0.12em; line-height: 1;"><span style="font-family: 'Marcellus', serif; font-weight: 400; font-size: 1em; letter-spacing: 0.32em; margin-right: -0.32em;">NOMA</span><span style="font-family: 'Marcellus', serif; font-weight: 400; font-size: 0.32em; letter-spacing: 0.42em; margin-right: -0.42em;">SKIN</span></span></span>
         <span style="font-size: 18px; color: color-mix(in srgb, var(--color-text) 80%, transparent);">Porodična prirodna kozmetika iz naše bašte</span>
       </div>
       <nav aria-label="Footer" style="display: flex; flex-wrap: wrap; gap: 12px 32px; font-size: 16px;">
@@ -274,13 +276,13 @@ a:hover { color: var(--yellow-hover); }
     { id: 'trepavice', name: 'Ulje za rast trepavica', price: 3000, img: 'assets/ulje-trepavice.png' }
   ];
   var BENEFITS = [
-    'Znaš odakle dolazi sastojak: iz naše bašte.',
-    'Biljna ulja i 100% organski sastojci.',
-    'Posebna krema za dan i posebna za noć.',
-    'Odvojena nega za podočnjake, trepavice i masnu kožu.',
-    'Kraća rutina: dva ili tri proizvoda koja dobro poznaješ.',
-    'Kad imaš pitanje, pitaš ljude koji su kremu napravili.',
-    'Tvoj novac ide porodici koja gaji biljke.'
+    'Kožu koja je mekana i hidrirana, jer su kreme napravljene od biljnih ulja.',
+    'Dnevnu kremu koja se brzo upija i drži kožu nežnom ceo dan.',
+    'Noćnu kremu koja neguje kožu dok spavaš.',
+    'Serum za svežiji izgled kože, a uz vitamin C i blistaviji ten.',
+    'Kremicu za tanku i osetljivu kožu oko očiju.',
+    'Laganu kremu za masnu kožu koja ne ostavlja težak osećaj na licu.',
+    'Ulje koje neguje trepavice od korena.'
   ];
   var REVIEWS = [
     ['Sofija M.', 'Nega lica', 'Nikada nije bila ovako mekana', 'Moja koža nikada nije bila ovako mekana i hidrirana. Posebno mi se dopada što su proizvodi napravljeni od biljnih sastojaka i prirodnih ulja.'],
@@ -315,9 +317,10 @@ a:hover { color: var(--yellow-hover); }
     $('products').innerHTML = PRODUCTS.map(function (p) {
       var sel = !!qty[p.id];
       return '<div class="card' + (sel ? ' is-selected' : '') + '">' +
-        '<img class="card-img" src="' + p.img + '" alt="' + p.name + '" loading="lazy">' +
-        '<div style="display: flex; flex-direction: column; gap: 6px; flex: 1;"><h3>' + p.name + '</h3><p class="tnum" style="font-size: 17px; color: var(--color-accent-light);">' + fmt(p.price) + '</p></div>' +
-        '<button type="button" class="btn btn-block' + (sel ? ' btn-outline' : '') + '" data-toggle="' + p.id + '">' + (sel ? 'Dodato u porudžbinu' : 'Dodaj u porudžbinu') + '</button></div>';
+        '<a href="proizvod.html?id=' + p.id + '"><img class="card-img" src="' + p.img + '" alt="' + p.name + '" loading="lazy"></a>' +
+        '<div style="display: flex; flex-direction: column; gap: 6px; flex: 1;"><h3><a href="proizvod.html?id=' + p.id + '" style="color: var(--color-text); text-decoration: none;">' + p.name + '</a></h3><p class="tnum" style="font-size: 17px; color: var(--color-accent-light);">' + fmt(p.price) + '</p></div>' +
+        '<div style="display: flex; flex-direction: column; gap: 8px;"><a href="proizvod.html?id=' + p.id + '" class="btn btn-outline btn-block">Saznaj više</a>' +
+        '<button type="button" class="btn btn-block' + (sel ? ' btn-outline' : '') + '" data-toggle="' + p.id + '">' + (sel ? 'Dodato u porudžbinu' : 'Dodaj u porudžbinu') + '</button></div></div>';
     }).join('');
   }
 
@@ -343,7 +346,15 @@ a:hover { color: var(--yellow-hover); }
   function setQty(id, q) {
     if (q <= 0) delete qty[id]; else qty[id] = q;
     $('form-error').hidden = true;
-    renderProducts(); renderCart();
+    (function () {
+    var q = new URLSearchParams(location.search), add = q.get('dodaj');
+    if (location.hash && !add) { var go = function () { var el = document.getElementById(location.hash.slice(1)); if (el) window.scrollTo({ top: el.getBoundingClientRect().top + scrollY - 64 }); }; setTimeout(go, 150); setTimeout(go, 600); }
+    if (add && PRODUCTS.some(function (p) { return p.id === add; })) {
+      qty[add] = Math.max(1, parseInt(q.get('kol'), 10) || 1);
+      setTimeout(function () { var el = $('porudzbina'); window.scrollTo({ top: el.getBoundingClientRect().top + scrollY - 64, behavior: 'smooth' }); }, 200);
+    }
+  })();
+  renderProducts(); renderCart();
   }
 
   document.addEventListener('click', function (e) {
@@ -368,6 +379,14 @@ a:hover { color: var(--yellow-hover); }
     thanks.hidden = false;
   });
 
+  (function () {
+    var q = new URLSearchParams(location.search), add = q.get('dodaj');
+    if (location.hash && !add) { var go = function () { var el = document.getElementById(location.hash.slice(1)); if (el) window.scrollTo({ top: el.getBoundingClientRect().top + scrollY - 64 }); }; setTimeout(go, 150); setTimeout(go, 600); }
+    if (add && PRODUCTS.some(function (p) { return p.id === add; })) {
+      qty[add] = Math.max(1, parseInt(q.get('kol'), 10) || 1);
+      setTimeout(function () { var el = $('porudzbina'); window.scrollTo({ top: el.getBoundingClientRect().top + scrollY - 64, behavior: 'smooth' }); }, 200);
+    }
+  })();
   renderProducts(); renderCart();
 
   function splitWords(el, start, step) {

@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Noma skin - proizvod</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Marcellus&display=swap">
+<style>
+:root {
+  --font-heading: 'Marcellus', serif;
+  --font-body: 'Marcellus', serif;
+  --color-bg: #2f3520;
+  --color-text: #f1efe3;
+  --color-muted: color-mix(in srgb, #f1efe3 82%, transparent);
+  --color-divider: color-mix(in srgb, #f1efe3 22%, transparent);
+  --color-accent: #d2ad6c;
+  --color-accent-light: #e3c48f;
+  --yellow: #e9c440;
+  --yellow-hover: #ffe47a;
+  --yellow-active: #c9a42a;
+  --pad-x: 24px;
+}
+@media (max-width: 600px) { :root { --pad-x: 16px; } }
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; background: var(--color-bg); color: var(--color-text); font-family: var(--font-body); font-size: 15px; line-height: 1.55; text-wrap: pretty; overflow-x: clip; }
+img { max-width: 100%; }
+h1, h2, h3 { font-family: var(--font-heading); font-weight: 400; margin: 0; }
+p { margin: 0; }
+a { color: var(--color-accent-light); text-underline-offset: 3px; }
+a:hover { color: var(--yellow-hover); }
+
+.container { width: 100%; max-width: 1200px; margin-inline: auto; padding-inline: var(--pad-x); }
+.section { padding-block: 112px; }
+.rule { height: 1px; border: 0; margin: 0 auto; width: calc(100% - 2 * var(--pad-x)); max-width: calc(1200px - 2 * var(--pad-x)); background: var(--color-divider); }
+.kicker { display: block; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-accent-light); margin-bottom: 20px; }
+.h2 { font-size: clamp(34px, 4vw, 48px); line-height: 1.12; }
+.prose { display: flex; flex-direction: column; gap: 20px; font-size: 17px; line-height: 28px; color: var(--color-muted); }
+.grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 380px), 1fr)); gap: 64px; align-items: center; }
+.photo { display: block; width: 100%; height: auto; border-radius: 20px; object-fit: cover; }
+
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 6px; cursor: pointer; text-decoration: none; font: inherit; font-size: 15px; line-height: 1.2; padding: 10px 18px; border-radius: 4px; white-space: nowrap; background: var(--yellow); color: var(--color-bg); border: 1px solid var(--yellow); transition: background .15s ease, border-color .15s ease, transform .15s ease; }
+.btn:hover { background: var(--yellow-hover); border-color: var(--yellow-hover); color: var(--color-bg); transform: translateY(-2px); }
+.btn:active { background: var(--yellow-active); border-color: var(--yellow-active); transform: none; }
+.btn:focus-visible { outline: 2px solid var(--yellow-hover); outline-offset: 3px; }
+.btn-lg { padding: 14px 28px; font-size: 16px; }
+.btn-block { width: 100%; }
+.btn-outline { background: transparent; color: var(--yellow); }
+.btn-icon { width: 36px; height: 36px; padding: 0; }
+
+.nav { position: sticky; top: 0; z-index: 10; background: var(--color-bg); border-bottom: 1px solid var(--color-divider); }
+.nav .container { display: flex; align-items: center; gap: 16px; padding-block: 14px; }
+.nav-brand { font-family: var(--font-heading); font-weight: 600; font-size: 18px; color: var(--color-text); text-decoration: none; margin-right: auto; }
+.nav-brand:hover { color: var(--color-text); }
+
+.hero { padding-block: 96px 112px; display: flex; flex-direction: column; gap: 48px; }
+.hero h1 { font-size: clamp(44px, 7.6vw, 108px); line-height: 1.04; letter-spacing: -0.015em; }
+.hero-lead { margin-top: 28px; max-width: 46ch; font-size: clamp(18px, 1.8vw, 21px); line-height: 1.5; color: color-mix(in srgb, var(--color-text) 85%, transparent); }
+.hero-media { position: relative; border-radius: 20px; overflow: hidden; }
+.hero-media img { display: block; width: 100%; height: auto; aspect-ratio: 1374 / 1145; object-fit: cover; }
+.price-tag { position: absolute; display: flex; flex-direction: column; gap: 2px; padding: 10px 14px; background: var(--color-bg); border: 1px solid var(--color-divider); border-radius: 6px; text-decoration: none; color: var(--color-text); line-height: 1.2; }
+.price-tag:hover { border-color: var(--color-accent); color: var(--color-text); }
+.price-tag b { font-family: var(--font-heading); font-size: clamp(13px, 1.4vw, 17px); font-weight: 600; white-space: nowrap; }
+.price-tag span { font-size: clamp(12px, 1.2vw, 15px); color: var(--color-accent-light); white-space: nowrap; }
+.hero-foot { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr)); gap: 32px 64px; align-items: end; padding-top: 40px; }
+.hero-foot-lead { font-family: var(--font-heading); font-size: clamp(24px, 2.6vw, 32px); line-height: 1.25; letter-spacing: -0.01em; }
+.hero-foot-side { display: flex; flex-direction: column; gap: 20px; border-left: 1px solid var(--color-divider); padding-left: 32px; }
+.tnum { font-feature-settings: 'tnum' 1; }
+
+.big-num { font-family: var(--font-heading); font-size: clamp(160px, 22vw, 300px); line-height: .85; color: var(--color-accent); }
+.benefit { display: flex; gap: 16px; align-items: flex-start; padding: 20px 0; border-top: 1px solid var(--color-divider); font-size: 17px; line-height: 28px; }
+.benefit svg { flex: none; margin-top: 4px; }
+
+.review { margin: 0; border: 1px solid var(--color-divider); border-radius: 20px; padding: 36px 32px 28px; display: flex; flex-direction: column; gap: 22px; transition: border-color .2s ease, transform .2s ease; }
+.review:hover { border-color: var(--yellow); transform: translateY(-4px); }
+.review-top { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+.stars { display: flex; gap: 3px; color: var(--yellow); }
+.pill { font-size: 12px; letter-spacing: .08em; text-transform: uppercase; padding: 5px 10px; border: 1px solid color-mix(in srgb, var(--yellow) 60%, transparent); border-radius: 999px; color: var(--yellow); white-space: nowrap; }
+.review-hook { font-family: var(--font-heading); font-weight: 500; font-size: clamp(26px, 2.4vw, 30px); line-height: 1.2; letter-spacing: -0.01em; }
+.review blockquote { margin: 0; font-size: 16px; line-height: 1.6; color: color-mix(in srgb, var(--color-text) 78%, transparent); }
+.review figcaption { display: flex; align-items: center; gap: 12px; padding-top: 18px; border-top: 1px solid var(--color-divider); font-size: 16px; font-weight: 600; }
+.avatar { width: 40px; height: 40px; flex: none; border-radius: 50%; background: var(--yellow); color: var(--color-bg); display: flex; align-items: center; justify-content: center; font-family: var(--font-heading); font-weight: 600; font-size: 18px; }
+
+.card { display: flex; flex-direction: column; gap: 16px; padding: 20px; border: 1px solid var(--color-divider); border-radius: 4px; }
+.card.is-selected { border-color: var(--color-accent); }
+.card-img { width: 100%; aspect-ratio: 1 / 1; border-radius: 12px; object-fit: cover; display: block; }
+.card h3 { font-weight: 500; font-size: 24px; line-height: 1.2; }
+
+.cart-row { display: flex; align-items: center; gap: 12px; padding: 14px 0; border-bottom: 1px solid var(--color-divider); }
+.field label { display: block; font-size: 13px; margin-bottom: 5px; color: color-mix(in srgb, var(--color-text) 70%, transparent); }
+.input { width: 100%; min-height: 40px; padding: 8px 12px; font: inherit; font-size: 15px; color: var(--color-text); caret-color: var(--color-accent); background: transparent; border: 1px solid var(--color-divider); border-radius: 4px; }
+.input::placeholder { color: color-mix(in srgb, #f1efe3 50%, transparent); }
+.input:hover { border-color: color-mix(in srgb, var(--color-text) 45%, transparent); }
+.input:focus-visible { border-color: var(--color-accent); outline: 2px solid var(--color-accent); outline-offset: 0; }
+
+@keyframes nomaMarquee { from { transform: translateX(-50%); } to { transform: translateX(0); } }
+    @keyframes nomaUp { from { opacity: 0; transform: translateY(0.35em); } to { opacity: 1; transform: none; } }
+.w { display: inline-block; animation: nomaUp .7s cubic-bezier(.2,.7,.2,1) both; }
+.js-hidden { opacity: 0; }
+@media (prefers-reduced-motion: reduce) { *, .w { animation: none !important; } .js-hidden { opacity: 1 !important; } }
+</style>
+<style>
+.pd { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); gap: 56px 72px; align-items: start; padding-block: 64px 96px; }
+.pd-media { position: sticky; top: 96px; }
+.pd-media img { display: block; width: 100%; aspect-ratio: 1 / 1; object-fit: cover; border-radius: 20px; }
+.pd-info { display: flex; flex-direction: column; gap: 28px; }
+.pd-back { font-size: 14px; letter-spacing: .08em; text-transform: uppercase; text-decoration: none; }
+.pd h1 { font-size: clamp(40px, 5vw, 64px); line-height: 1.05; }
+.pd-rows { border-top: 1px solid var(--color-divider); }
+.pd-row { display: grid; grid-template-columns: minmax(0, 150px) minmax(0, 1fr); gap: 8px 24px; padding: 20px 0; border-bottom: 1px solid var(--color-divider); }
+.pd-label { font-size: 13px; letter-spacing: .08em; text-transform: uppercase; color: var(--yellow); padding-top: 3px; }
+.pd-row p { font-size: 17px; line-height: 1.6; color: color-mix(in srgb, var(--color-text) 85%, transparent); }
+.qty { display: flex; align-items: center; gap: 4px; border: 1px solid var(--color-divider); border-radius: 4px; padding: 4px; }
+.qty .btn { border-color: transparent; }
+.ing { list-style: none; margin: 0; padding: 0; }
+.ing li { display: flex; gap: 14px; align-items: baseline; padding: 12px 0; border-top: 1px solid var(--color-divider); font-size: 17px; line-height: 1.55; }
+.ing li::before { content: ''; flex: none; width: 7px; height: 7px; border-radius: 50%; background: var(--yellow); transform: translateY(-2px); }
+.ing b { font-weight: 400; color: var(--yellow); }
+.other { display: flex; flex-direction: column; gap: 12px; text-decoration: none; color: var(--color-text); padding: 16px; border: 1px solid var(--color-divider); border-radius: 12px; transition: border-color .2s ease, transform .2s ease; }
+.other:hover { border-color: var(--yellow); transform: translateY(-4px); color: var(--color-text); }
+.other img { width: 100%; aspect-ratio: 1 / 1; object-fit: cover; border-radius: 8px; display: block; }
+</style>
+</head>
+<body>
+<nav class="nav">
+  <div class="container">
+    <a href="index.html" class="nav-brand" aria-label="Noma skin"><span style="display: flex; flex-direction: column; align-items: center; gap: 2px; line-height: 1;"><span style="font-family: 'Marcellus', serif; font-size: 24px; font-weight: 400; letter-spacing: 0.32em; margin-right: -0.32em;">NOMA</span><span style="font-family: 'Marcellus', serif; font-size: 10px; font-weight: 400; letter-spacing: 0.42em; margin-right: -0.42em;">SKIN</span></span></a>
+    <a href="index.html#ponuda" class="btn btn-outline">Svi proizvodi</a>
+  </div>
+</nav>
+<main>
+  <section class="container pd">
+    <div class="pd-media"><img id="p-img" src="" alt=""></div>
+    <div class="pd-info">
+      <a href="index.html#ponuda" class="pd-back">← Nazad na ponudu</a>
+      <div style="display: flex; flex-direction: column; gap: 14px;">
+        <span class="kicker" id="p-kicker" style="margin: 0; color: var(--yellow);"></span>
+        <h1 id="p-name"></h1>
+        <p id="p-meta" style="font-size: 16px; letter-spacing: .04em; color: color-mix(in srgb, var(--color-text) 75%, transparent);"></p>
+        <p id="p-price" class="tnum" style="font-size: 28px; color: var(--color-accent-light);"></p>
+      </div>
+      <p id="p-lead" style="font-size: 20px; line-height: 1.55;"></p>
+      <div style="display: flex; flex-direction: column; gap: 16px;">
+        <h2 style="font-size: 26px; line-height: 1.2;">Ključni sastojci</h2>
+        <ul id="p-ing" class="ing"></ul>
+      </div>
+      <div class="pd-rows">
+        <div class="pd-row"><span class="pd-label">Za koga</span><p id="p-for"></p></div>
+        <div class="pd-row"><span class="pd-label">Kako se koristi</span><p id="p-how"></p></div>
+        
+      </div>
+      <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 16px;">
+        <div class="qty">
+          <button type="button" class="btn btn-outline btn-icon" id="dec" aria-label="Manje"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14"/></svg></button>
+          <span id="qty" class="tnum" style="min-width: 32px; text-align: center; font-size: 18px;">1</span>
+          <button type="button" class="btn btn-outline btn-icon" id="inc" aria-label="Više"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14"/><path d="M12 5v14"/></svg></button>
+        </div>
+        <a id="order" href="index.html#porudzbina" class="btn btn-lg" style="flex: 1; min-width: 220px; font-size: 18px; padding-block: 16px;">Naruči odmah</a>
+      </div>
+      <p style="font-size: 15px; color: color-mix(in srgb, var(--color-text) 70%, transparent);">Posle porudžbine javljamo ti se da je potvrdimo i dogovorimo dostavu.</p>
+    </div>
+  </section>
+  <hr class="rule">
+  <section class="container section">
+    <h2 style="font-size: clamp(30px, 3.4vw, 40px); line-height: 1.15;">Pogledaj i ostale proizvode</h2>
+    <div id="others" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 220px), 1fr)); gap: 24px; margin-top: 40px;"></div>
+  </section>
+</main>
+<footer style="border-top: 1px solid var(--color-divider);">
+  <div class="container" style="padding-block: 40px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px 32px; font-size: 14px; color: color-mix(in srgb, var(--color-text) 70%, transparent);">
+    <span>© 2026 Noma skin</span>
+    <span>Porodična prirodna kozmetika iz naše bašte</span>
+  </div>
+</footer>
+<script>
+(function () {
+  var PRODUCTS = [
+    {"id":"dnevna","name":"Dnevna krema","price":3000,"img":"assets/dnevna-krema.png","kicker":"NOMA Nourishing Face Cream","lead":"Lagana, hranljiva dnevna krema obogaćena biljnim ekstraktima i prirodnim uljima. Pruža koži hidrataciju, mekoću i osećaj prijatnosti tokom celog dana.","forWho":"Za sve tipove kože, a najviše za normalnu i suvu kožu kojoj treba hidratacija preko dana.","howTo":"Ujutru nanesi malu količinu na čisto lice i vrat i nežno umasiraj dok se ne upije. Možeš je koristiti ispod šminke.","meta":"50 ml · Dnevna nega","ingredients":[{"name":"Aloe vera","desc":"hidrira i umiruje kožu."},{"name":"Ekstrakt kamilice","desc":"pomaže u nezi osetljive kože."},{"name":"Ulje jojobe","desc":"omekšava i neguje kožu."},{"name":"Ši puter","desc":"hrani kožu i smanjuje gubitak vlage."},{"name":"Vitamin E","desc":"antioksidans koji doprinosi zaštiti formule."}]},
+    {"id":"serum","name":"Serum za lice","price":2500,"img":"assets/serum-za-lice.png","kicker":"NOMA Botanical Radiance Serum","lead":"Nežan biljni serum koji kombinuje hidratantne sastojke sa pažljivo odabranim biljnim ekstraktima. Koži pruža svežinu, hidrataciju i prirodan sjaj.","forWho":"Za sve tipove kože, kao dodatak dnevnoj ili noćnoj kremi.","howTo":"Na čisto lice nanesi 2 do 3 kapi i lagano utapkaj prstima. Posle toga nanesi kremu. Koristi ujutru, uveče ili oba puta.","meta":"30 ml · Hidratacija i blistavost","ingredients":[{"name":"Ekstrakt nevena","desc":"umiruje i neguje kožu."},{"name":"Ulje šipurka","desc":"bogato masnim kiselinama, doprinosi mekoći kože."},{"name":"Aloe vera","desc":"pruža hidrataciju."},{"name":"Hijaluronska kiselina","desc":"pomaže zadržavanju vlage."},{"name":"Pantenol (provitamin B5)","desc":"umiruje i podržava kožnu barijeru."}]},
+    {"id":"vitc","name":"Serum sa vitaminom C","price":3000,"img":"assets/serum-vitamin-c.png","kicker":"NOMA Vitamin C Glow Serum","lead":"Serum sa vitaminom C osmišljen za kožu kojoj nedostaje sjaj. Pomaže u poboljšanju izgleda neujednačenog tena i pruža koži svež, blistav izgled.","forWho":"Za kožu koja izgleda umorno ili bez sjaja i za ujednačavanje tena.","howTo":"Ujutru na čisto lice nanesi 2 do 3 kapi, a zatim dnevnu kremu. Preko dana koristi i zaštitu od sunca.","meta":"30 ml · Ujednačen ten i blistavost","ingredients":[{"name":"Vitamin C (3-O-Ethyl Ascorbic Acid)","desc":"antioksidans koji pomaže u postizanju ujednačenijeg izgleda tena."},{"name":"Ekstrakt šipurka","desc":"pruža dodatnu antioksidativnu negu."},{"name":"Vitamin E","desc":"antioksidans."},{"name":"Hijaluronska kiselina","desc":"hidrira kožu."},{"name":"Glicerin","desc":"privlači i zadržava vlagu."}]},
+    {"id":"nocna","name":"Noćna krema","price":3500,"img":"assets/nocna-krema.png","kicker":"NOMA Restoring Night Cream","lead":"Bogata noćna krema sa biljnim uljima i hranljivim sastojcima. Tokom noći pomaže koži da zadrži vlagu, ostavljajući je mekom, glatkom i negovanom.","forWho":"Za sve tipove kože, a posebno za suvu kožu i kožu kojoj treba jača nega.","howTo":"Uveče, posle umivanja, nanesi kremu na lice i vrat i umasiraj kružnim pokretima.","meta":"50 ml · Bogata večernja nega","ingredients":[{"name":"Ulje šipurka","desc":"hrani i omekšava kožu."},{"name":"Ši puter","desc":"doprinosi očuvanju vlage."},{"name":"Ekstrakt nevena","desc":"pruža umirujuću negu."},{"name":"Skvalan","desc":"omekšava kožu i podržava zaštitnu barijeru."},{"name":"Pantenol","desc":"doprinosi hidrataciji i osećaju prijatnosti."}]},
+    {"id":"podocnjaci","name":"Kremica za podočnjake","price":3400,"img":"assets/kremica-podocnjaci.png","kicker":"NOMA Brightening Eye Cream","lead":"Osvežavajuća krema za područje oko očiju sa kofeinom, peptidima i vitaminom C. Metalni masažni aplikator pruža prijatan osećaj hlađenja i omogućava jednostavno nanošenje.","forWho":"Za svakoga ko želi posebnu negu oko očiju, ujutru i uveče.","howTo":"Ujutru i uveče nanesi malu količinu ispod očiju i lagano umasiraj metalnim aplikatorom. Pazi da ne uđe u oči.","meta":"15 ml · Sa rashlađujućim metalnim aplikatorom","ingredients":[{"name":"Kofein","desc":"može privremeno ublažiti izgled natečenosti."},{"name":"Vitamin C derivat","desc":"doprinosi blistavijem izgledu kože."},{"name":"Peptidi","desc":"koriste se u formulama za negu finih linija."},{"name":"Hijaluronska kiselina","desc":"hidrira osetljivo područje."},{"name":"Ekstrakt kamilice","desc":"pruža nežnu negu."}]},
+    {"id":"masna","name":"Lagana krema za masnu kožu","price":2400,"img":"assets/krema-masna-koza.png","kicker":"NOMA Balancing Face Cream","lead":"Lagana hidratantna krema posebno osmišljena za masnu i kombinovanu kožu. Brzo se upija, ne ostavlja težak osećaj i pomaže koži da zadrži svež i uravnotežen izgled.","forWho":"Za masnu i mešovitu kožu.","howTo":"Ujutru i uveče nanesi tanak sloj na čisto lice i umasiraj dok se ne upije.","meta":"50 ml · Lagana hidratacija bez teškog osećaja","ingredients":[{"name":"Niacinamid (vitamin B3)","desc":"pomaže u regulisanju izgleda masnog sjaja i podržava kožnu barijeru."},{"name":"Aloe vera","desc":"hidrira kožu."},{"name":"Ekstrakt zelenog čaja","desc":"pruža antioksidativnu negu."},{"name":"Skvalan","desc":"lagani emolijens koji omekšava kožu."},{"name":"Pantenol","desc":"umiruje i hidrira."}]},
+    {"id":"trepavice","name":"Ulje za rast trepavica","price":3000,"img":"assets/ulje-trepavice.png","kicker":"NOMA Lash Growth Serum","lead":"Hranljivi serum za svakodnevnu negu trepavica, obogaćen prirodnim uljima i negujućim sastojcima. Pomaže da trepavice izgledaju zdravije, mekše i negovanije.","forWho":"Za sve koji žele negovanije trepavice.","howTo":"Uveče na čiste i suve trepavice nanesi tanak sloj uz sam koren. Pazi da ne uđe u oči.","meta":"5 ml · Nega i jačanje izgleda trepavica","ingredients":[{"name":"Ricinusovo ulje","desc":"neguje i omekšava trepavice."},{"name":"Pantenol","desc":"pomaže u hidrataciji dlake."},{"name":"Vitamin E","desc":"antioksidans."},{"name":"Peptidi","desc":"koriste se u kozmetičkim formulama za negu trepavica."},{"name":"Ulje jojobe","desc":"doprinosi mekoći i fleksibilnosti dlačica."}]},
+  ];
+  var fmt = function (n) { return n.toLocaleString('de-DE') + ' din'; };
+  var $ = function (id) { return document.getElementById(id); };
+  var id = new URLSearchParams(location.search).get('id');
+  var p = PRODUCTS.filter(function (x) { return x.id === id; })[0] || PRODUCTS[0];
+  var qty = 1;
+  document.title = p.name + ' - Noma skin';
+  $('p-img').src = p.img; $('p-img').alt = p.name;
+  $('p-kicker').textContent = p.kicker; $('p-name').textContent = p.name; $('p-price').textContent = fmt(p.price);
+  $('p-lead').textContent = p.lead; $('p-meta').textContent = p.meta;
+  $('p-ing').innerHTML = p.ingredients.map(function (i) { return '<li><span><b>' + i.name + '</b> – ' + i.desc + '</span></li>'; }).join(''); $('p-for').textContent = p.forWho; $('p-how').textContent = p.howTo;
+  function update() {
+    $('qty').textContent = qty;
+    $('order').textContent = 'Naruči odmah · ' + fmt(p.price * qty);
+    $('order').href = 'index.html?dodaj=' + p.id + '&kol=' + qty + '#porudzbina';
+  }
+  $('inc').onclick = function () { qty++; update(); };
+  $('dec').onclick = function () { qty = Math.max(1, qty - 1); update(); };
+  update();
+  $('others').innerHTML = PRODUCTS.filter(function (x) { return x.id !== p.id; }).map(function (x) {
+    return '<a class="other" href="proizvod.html?id=' + x.id + '"><img src="' + x.img + '" alt="' + x.name + '" loading="lazy"><span style="font-size: 18px; line-height: 1.25;">' + x.name + '</span><span class="tnum" style="font-size: 15px; color: var(--color-accent-light);">' + fmt(x.price) + '</span></a>';
+  }).join('');
+})();
+</script>
+</body>
+</html>
