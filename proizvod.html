@@ -118,6 +118,13 @@ a:hover { color: var(--yellow-hover); }
 .ing li { display: flex; gap: 14px; align-items: baseline; padding: 12px 0; border-top: 1px solid var(--color-divider); font-size: 17px; line-height: 1.55; }
 .ing li::before { content: ''; flex: none; width: 7px; height: 7px; border-radius: 50%; background: var(--yellow); transform: translateY(-2px); }
 .ing b { font-weight: 400; color: var(--yellow); }
+.modal { position: fixed; inset: 0; z-index: 50; background: rgba(20, 24, 14, .72); display: flex; align-items: center; justify-content: center; padding: 16px; }
+.modal[hidden] { display: none; }
+.modal-box { width: 100%; max-width: 520px; max-height: calc(100svh - 32px); overflow: auto; background: var(--color-bg); border: 1px solid var(--color-divider); border-radius: 20px; padding: 32px; display: flex; flex-direction: column; gap: 22px; animation: nomaUp .3s ease both; }
+.modal-head { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+.modal-prod { display: flex; align-items: center; gap: 16px; padding: 16px 0; border-block: 1px solid var(--color-divider); }
+.modal-prod img { width: 72px; height: 72px; object-fit: cover; border-radius: 10px; flex: none; }
+@media (max-width: 600px) { .modal-box { padding: 24px 20px; } }
 .other { display: flex; flex-direction: column; gap: 12px; text-decoration: none; color: var(--color-text); padding: 16px; border: 1px solid var(--color-divider); border-radius: 12px; transition: border-color .2s ease, transform .2s ease; }
 .other:hover { border-color: var(--yellow); transform: translateY(-4px); color: var(--color-text); }
 .other img { width: 100%; aspect-ratio: 1 / 1; object-fit: cover; border-radius: 8px; display: block; }
@@ -132,7 +139,7 @@ a:hover { color: var(--yellow-hover); }
 </nav>
 <main>
   <section class="container pd">
-    <div class="pd-media"><img id="p-img" src="" alt=""></div>
+    <div class="pd-media"><img id="p-img" alt=""></div>
     <div class="pd-info">
       <a href="index.html#ponuda" class="pd-back">← Nazad na ponudu</a>
       <div style="display: flex; flex-direction: column; gap: 14px;">
@@ -157,7 +164,7 @@ a:hover { color: var(--yellow-hover); }
           <span id="qty" class="tnum" style="min-width: 32px; text-align: center; font-size: 18px;">1</span>
           <button type="button" class="btn btn-outline btn-icon" id="inc" aria-label="Više"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14"/><path d="M12 5v14"/></svg></button>
         </div>
-        <a id="order" href="index.html#porudzbina" class="btn btn-lg" style="flex: 1; min-width: 220px; font-size: 18px; padding-block: 16px;">Naruči odmah</a>
+        <button type="button" id="order" class="btn btn-lg" style="flex: 1; min-width: 220px; font-size: 18px; padding-block: 16px;">Naruči odmah</button>
       </div>
       <p style="font-size: 15px; color: color-mix(in srgb, var(--color-text) 70%, transparent);">Posle porudžbine javljamo ti se da je potvrdimo i dogovorimo dostavu.</p>
     </div>
@@ -174,6 +181,42 @@ a:hover { color: var(--yellow-hover); }
     <span>Porodična prirodna kozmetika iz naše bašte</span>
   </div>
 </footer>
+
+<div class="modal" id="modal" hidden>
+  <div class="modal-box" role="dialog" aria-modal="true" aria-labelledby="m-title">
+    <div class="modal-head">
+      <h2 id="m-title" style="font-size: 30px; line-height: 1.1;">Porudžbina</h2>
+      <button type="button" class="btn btn-outline btn-icon" id="m-close" aria-label="Zatvori"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg></button>
+    </div>
+    <div id="m-form-wrap" style="display: flex; flex-direction: column; gap: 22px;">
+      <div class="modal-prod">
+        <img id="m-img" alt="">
+        <div style="flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 4px;">
+          <span id="m-name" style="font-size: 18px; line-height: 1.25;"></span>
+          <span id="m-total" class="tnum" style="font-size: 16px; color: var(--color-accent-light);"></span>
+        </div>
+        <div class="qty">
+          <button type="button" class="btn btn-outline btn-icon" id="m-dec" aria-label="Manje"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14"/></svg></button>
+          <span id="m-qty" class="tnum" style="min-width: 24px; text-align: center;">1</span>
+          <button type="button" class="btn btn-outline btn-icon" id="m-inc" aria-label="Više"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14"/><path d="M12 5v14"/></svg></button>
+        </div>
+      </div>
+      <form id="m-form" novalidate style="display: flex; flex-direction: column; gap: 16px;">
+        <div class="field"><label for="m-ime">Ime i prezime</label><input id="m-ime" class="input" type="text" autocomplete="name" placeholder="Jelena Petrović"></div>
+        <div class="field"><label for="m-tel">Telefon</label><input id="m-tel" class="input" type="tel" autocomplete="tel" placeholder="06x xxx xxxx"></div>
+        <div class="field"><label for="m-adr">Adresa za dostavu</label><input id="m-adr" class="input" type="text" autocomplete="street-address" placeholder="Ulica i broj, grad"></div>
+        <div class="field"><label for="m-nap">Napomena (nije obavezno)</label><input id="m-nap" class="input" type="text" placeholder="Pitanje o tipu kože, vreme za poziv"></div>
+        <p id="m-error" role="alert" style="font-size: 15px; color: var(--color-accent-light);" hidden></p>
+        <button type="submit" class="btn btn-lg btn-block">Pošalji porudžbinu</button>
+      </form>
+    </div>
+    <div id="m-thanks" style="display: flex; flex-direction: column; gap: 16px;" hidden>
+      <h3 id="m-thanks-title" style="font-size: 30px; line-height: 1.15;"></h3>
+      <p id="m-thanks-text" style="font-size: 17px; line-height: 28px; color: var(--color-muted);"></p>
+      <button type="button" class="btn btn-outline" id="m-done" style="align-self: flex-start;">Zatvori</button>
+    </div>
+  </div>
+</div>
 <script>
 (function () {
   var PRODUCTS = [
@@ -196,12 +239,33 @@ a:hover { color: var(--yellow-hover); }
   $('p-lead').textContent = p.lead; $('p-meta').textContent = p.meta;
   $('p-ing').innerHTML = p.ingredients.map(function (i) { return '<li><span><b>' + i.name + '</b> – ' + i.desc + '</span></li>'; }).join(''); $('p-for').textContent = p.forWho; $('p-how').textContent = p.howTo;
   function update() {
-    $('qty').textContent = qty;
+    $('qty').textContent = qty; $('m-qty').textContent = qty;
     $('order').textContent = 'Naruči odmah · ' + fmt(p.price * qty);
-    $('order').href = 'index.html?dodaj=' + p.id + '&kol=' + qty + '#porudzbina';
+    $('m-total').textContent = qty + ' × ' + fmt(p.price) + ' = ' + fmt(p.price * qty);
   }
   $('inc').onclick = function () { qty++; update(); };
   $('dec').onclick = function () { qty = Math.max(1, qty - 1); update(); };
+  $('m-inc').onclick = function () { qty++; update(); };
+  $('m-dec').onclick = function () { qty = Math.max(1, qty - 1); update(); };
+  $('m-img').src = p.img; $('m-img').alt = p.name; $('m-name').textContent = p.name;
+  var modalEl = $('modal'), lastFocus = null;
+  function openModal() { lastFocus = document.activeElement; modalEl.hidden = false; document.body.style.overflow = 'hidden'; setTimeout(function () { $('m-ime').focus(); }, 50); }
+  function closeModal() { modalEl.hidden = true; document.body.style.overflow = ''; if (lastFocus) lastFocus.focus(); }
+  $('order').onclick = openModal;
+  $('m-close').onclick = closeModal;
+  $('m-done').onclick = closeModal;
+  modalEl.addEventListener('click', function (e) { if (e.target === modalEl) closeModal(); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !modalEl.hidden) closeModal(); });
+  $('m-form').addEventListener('submit', function (e) {
+    e.preventDefault();
+    var name = $('m-ime').value.trim(), phone = $('m-tel').value.trim(), address = $('m-adr').value.trim();
+    if (!name || !phone || !address) { $('m-error').textContent = 'Upiši ime, telefon i adresu.'; $('m-error').hidden = false; return; }
+    // TODO: poveži sa servisom za slanje (npr. Formspree ili email). Za sada se porudžbina nigde ne šalje.
+    $('m-form-wrap').hidden = true;
+    $('m-thanks-title').textContent = 'Hvala, ' + name + '.';
+    $('m-thanks-text').textContent = 'Porudžbina za ' + p.name + ' (' + qty + ' kom, ' + fmt(p.price * qty) + ') je stigla. Javljamo ti se na ' + phone + ' da potvrdimo i dogovorimo dostavu.';
+    $('m-thanks').hidden = false;
+  });
   update();
   $('others').innerHTML = PRODUCTS.filter(function (x) { return x.id !== p.id; }).map(function (x) {
     return '<a class="other" href="proizvod.html?id=' + x.id + '"><img src="' + x.img + '" alt="' + x.name + '" loading="lazy"><span style="font-size: 18px; line-height: 1.25;">' + x.name + '</span><span class="tnum" style="font-size: 15px; color: var(--color-accent-light);">' + fmt(x.price) + '</span></a>';

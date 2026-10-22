@@ -56,11 +56,11 @@ a:hover { color: var(--yellow-hover); }
 .nav-brand { font-family: var(--font-heading); font-weight: 600; font-size: 18px; color: var(--color-text); text-decoration: none; margin-right: auto; }
 .nav-brand:hover { color: var(--color-text); }
 
-.hero { padding-block: 96px 112px; display: flex; flex-direction: column; gap: 48px; }
-.hero h1 { font-size: clamp(44px, 7.6vw, 108px); line-height: 1.04; letter-spacing: -0.015em; }
-.hero-lead { margin-top: 28px; max-width: 46ch; font-size: clamp(18px, 1.8vw, 21px); line-height: 1.5; color: color-mix(in srgb, var(--color-text) 85%, transparent); }
-.hero-media { position: relative; border-radius: 20px; overflow: hidden; }
-.hero-media img { display: block; width: 100%; height: auto; aspect-ratio: 1374 / 1145; object-fit: cover; }
+.hero { padding-block: 40px 112px; display: flex; flex-direction: column; gap: 32px; }
+.hero h1 { font-size: clamp(32px, 4.4vw, 60px); line-height: 1.04; letter-spacing: -0.015em; }
+.hero-lead { margin-top: 24px; max-width: 46ch; font-size: clamp(17px, 1.6vw, 19px); line-height: 1.5; color: color-mix(in srgb, var(--color-text) 85%, transparent); }
+.hero-media { position: relative; border-radius: 20px; overflow: hidden; width: 100%; }
+.hero-media img { display: block; width: 100%; height: auto; aspect-ratio: 1774 / 887; object-fit: cover; }
 .price-tag { position: absolute; display: flex; flex-direction: column; gap: 2px; padding: 10px 14px; background: var(--color-bg); border: 1px solid var(--color-divider); border-radius: 6px; text-decoration: none; color: var(--color-text); line-height: 1.2; }
 .price-tag:hover { border-color: var(--color-accent); color: var(--color-text); }
 .price-tag b { font-family: var(--font-heading); font-size: clamp(13px, 1.4vw, 17px); font-weight: 600; white-space: nowrap; }
@@ -92,6 +92,7 @@ a:hover { color: var(--yellow-hover); }
 .cart-row { display: flex; align-items: center; gap: 12px; padding: 14px 0; border-bottom: 1px solid var(--color-divider); }
 .field label { display: block; font-size: 13px; margin-bottom: 5px; color: color-mix(in srgb, var(--color-text) 70%, transparent); }
 .input { width: 100%; min-height: 40px; padding: 8px 12px; font: inherit; font-size: 15px; color: var(--color-text); caret-color: var(--color-accent); background: transparent; border: 1px solid var(--color-divider); border-radius: 4px; }
+select.input option { color: #2f3520; background: #f1efe3; }
 .input::placeholder { color: color-mix(in srgb, #f1efe3 50%, transparent); }
 .input:hover { border-color: color-mix(in srgb, var(--color-text) 45%, transparent); }
 .input:focus-visible { border-color: var(--color-accent); outline: 2px solid var(--color-accent); outline-offset: 0; }
@@ -120,9 +121,9 @@ a:hover { color: var(--yellow-hover); }
     </div>
     <div style="animation: nomaUp 1s ease 2.39s both;">
       <div class="hero-media">
-        <img src="assets/hero.png" alt="Noma skin serum i krema za lice na kamenu u bašti" width="1374" height="1145">
-        <a href="#ponuda" class="price-tag" style="left: 9%; top: 44%;"><b>Serum za lice</b><span class="tnum">2.500 din</span></a>
-        <a href="#ponuda" class="price-tag" style="left: 52%; top: 30%;"><b>Dnevna krema</b><span class="tnum">3.000 din</span></a>
+        <img src="assets/hero.png" alt="Noma skin serum i krema za lice na kamenu u bašti" width="1774" height="887">
+        <a href="#ponuda" class="price-tag" style="left: 20%; top: 26%;"><b>Serum za lice</b><span class="tnum">2.500 din</span></a>
+        <a href="#ponuda" class="price-tag" style="left: 74%; top: 40%;"><b>Dnevna krema</b><span class="tnum">3.000 din</span></a>
       </div>
       <div class="hero-foot">
         <p class="hero-foot-lead">Noma skin pravi kreme, serume i ulja od biljnih ulja i 100% organskih sastojaka. Biljke gajimo u svojoj bašti. Mali smo porodični posao i ovo radimo pet godina.</p>
@@ -219,7 +220,18 @@ a:hover { color: var(--yellow-hover); }
         <li>Upiši ime, telefon i adresu za dostavu.</li>
         <li>Klikni „Pošalji porudžbinu". Javljamo ti se da potvrdimo porudžbinu i dogovorimo dostavu.</li>
       </ol>
-      <div id="cart" style="margin-top: 40px; border-top: 1px solid var(--color-divider);"></div>
+      <div style="margin-top: 32px; display: flex; flex-wrap: wrap; gap: 12px; align-items: flex-end;">
+        <div class="field" style="flex: 1; min-width: 220px;"><label for="pick">Izaberi proizvod</label><select id="pick" class="input" style="cursor: pointer;"></select></div>
+        <div class="field"><label>Količina</label>
+          <div style="display: flex; align-items: center; gap: 4px; border: 1px solid var(--color-divider); border-radius: 4px; padding: 1px;">
+            <button type="button" class="btn btn-outline btn-icon" id="pick-dec" aria-label="Manje" style="border-color: transparent;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14"></path></svg></button>
+            <span id="pick-qty" class="tnum" style="min-width: 24px; text-align: center; font-size: 16px;">1</span>
+            <button type="button" class="btn btn-outline btn-icon" id="pick-inc" aria-label="Više" style="border-color: transparent;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14"></path><path d="M12 5v14"></path></svg></button>
+          </div>
+        </div>
+        <button type="button" class="btn" id="pick-add" style="min-height: 40px;">Dodaj</button>
+      </div>
+      <div id="cart" style="margin-top: 24px; border-top: 1px solid var(--color-divider);"></div>
     </div>
     <div class="card" style="padding: 32px;">
       <form id="order-form" novalidate style="display: flex; flex-direction: column; gap: 20px;">
@@ -302,6 +314,12 @@ a:hover { color: var(--yellow-hover); }
   var fmt = function (n) { return n.toLocaleString('de-DE') + ' din'; };
   var esc = function (s) { return String(s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); };
 
+  $('pick').innerHTML = PRODUCTS.map(function (p) { return '<option value="' + p.id + '">' + p.name + ' · ' + fmt(p.price) + '</option>'; }).join('');
+  var pickQty = 1;
+  function showPick() { $('pick-qty').textContent = pickQty; }
+  $('pick-inc').addEventListener('click', function () { pickQty++; showPick(); });
+  $('pick-dec').addEventListener('click', function () { pickQty = Math.max(1, pickQty - 1); showPick(); });
+  $('pick-add').addEventListener('click', function () { var id = $('pick').value; setQty(id, (qty[id] || 0) + pickQty); pickQty = 1; showPick(); });
   $('benefits').innerHTML = BENEFITS.map(function (b) { return '<div class="benefit">' + LEAF + '<span>' + b + '</span></div>'; }).join('');
 
   $('reviews').innerHTML = REVIEWS.map(function (r, i) {
@@ -320,7 +338,12 @@ a:hover { color: var(--yellow-hover); }
         '<a href="proizvod.html?id=' + p.id + '"><img class="card-img" src="' + p.img + '" alt="' + p.name + '" loading="lazy"></a>' +
         '<div style="display: flex; flex-direction: column; gap: 6px; flex: 1;"><h3><a href="proizvod.html?id=' + p.id + '" style="color: var(--color-text); text-decoration: none;">' + p.name + '</a></h3><p class="tnum" style="font-size: 17px; color: var(--color-accent-light);">' + fmt(p.price) + '</p></div>' +
         '<div style="display: flex; flex-direction: column; gap: 8px;"><a href="proizvod.html?id=' + p.id + '" class="btn btn-outline btn-block">Saznaj više</a>' +
-        '<button type="button" class="btn btn-block' + (sel ? ' btn-outline' : '') + '" data-toggle="' + p.id + '">' + (sel ? 'Dodato u porudžbinu' : 'Dodaj u porudžbinu') + '</button></div></div>';
+        (sel
+          ? '<div style="display: flex; align-items: center; justify-content: space-between; gap: 8px; border: 1px solid var(--yellow); border-radius: 4px; padding: 4px;">' +
+              '<button type="button" class="btn btn-icon" aria-label="Manje: ' + p.name + '" data-dec="' + p.id + '">' + MINUS + '</button>' +
+              '<span class="tnum" style="font-size: 17px;">' + qty[p.id] + ' u porudžbini</span>' +
+              '<button type="button" class="btn btn-icon" aria-label="Više: ' + p.name + '" data-inc="' + p.id + '">' + PLUS + '</button></div>'
+          : '<button type="button" class="btn btn-block" data-toggle="' + p.id + '">Dodaj u porudžbinu</button>') + '</div></div>';
     }).join('');
   }
 
